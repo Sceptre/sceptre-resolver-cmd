@@ -41,5 +41,5 @@ parameters:
 ```yaml
 # Add a human readable comment with the deployment date
 parameters:
-  DeployNote: !cmd echo "Deployed with love by `whoami` at `date +s`."
+  DeployNote: !cmd echo "Deployed with love by `whoami` on `date`."
 ```
