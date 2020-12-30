@@ -41,7 +41,24 @@ parameters:
 ```
 
 ```yaml
+parameters:
+  # Resolve the EC2 AMI Image ID to the latest official version of Ubuntu 20.04 at deploy time
+  EC2ImageIdUbuntu: !rcmd >-
+    aws ssm get-parameters
+      --region eu-west-2
+      --names /aws/service/canonical/ubuntu/server/18.04/stable/current/amd64/hvm/ebs-gp2/ami-id
+      --query 'Parameters[0].[Value]' --output text
+
+  # Resolve the EC2 AMI Image ID to the latest official version Windows Server 2019 at deploy time
+  EC2ImageIdWindows: !rcmd >-
+    aws ssm get-parameters
+      --region eu-west-2
+      --names /aws/service/ami-windows-latest/Windows_Server-2016-English-Full-Base
+      --query 'Parameters[0].[Value]' --output text | jq -r '.image_id'
+```
+
+```yaml
 # Add a human readable comment with the deployment date
 parameters:
-  DeployNote: !rcmd echo "Deployed with love by `whoami` on `date`."
+  DeployNote: !rcmd echo "Deployed by `whoami` on `date` :-)"
 ```
