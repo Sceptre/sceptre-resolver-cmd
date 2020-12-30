@@ -46,7 +46,7 @@ parameters:
   EC2ImageIdUbuntu: !rcmd >-
     aws ssm get-parameters
       --region eu-west-2
-      --names /aws/service/canonical/ubuntu/server/18.04/stable/current/amd64/hvm/ebs-gp2/ami-id
+      --names /aws/service/canonical/ubuntu/server/20.04/stable/current/amd64/hvm/ebs-gp2/ami-id
       --query 'Parameters[0].[Value]' --output text
 
   # Resolve the EC2 AMI Image ID to the latest official version Windows Server 2019 at deploy time
