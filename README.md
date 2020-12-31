@@ -15,6 +15,10 @@ The yaml tag `!cmd` is already used by sceptre hooks, unfortunately it wasn't po
 ## Installation
 
 ```
+# To install directly from PyPI
+pip install sceptre-cmd-resolver
+
+# To install from this git repo
 pip install git+https://github.com/lukeplausin/sceptre-resolver-cmd.git
 ```
 

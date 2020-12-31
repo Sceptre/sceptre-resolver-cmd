@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
 
-__version__ = "1.1.0"
+__version__ = "1.1.1"
 
 # More information on setting values:
 # https://github.com/Sceptre/project/wiki/sceptre-resolver-template
 
 # lowercase, use `-` as separator.
-RESOLVER_NAME = 'sceptre-resolver-cmd'
+RESOLVER_NAME = 'sceptre-cmd-resolver'
 # the resolver call in sceptre e.g. !command_name.
 RESOLVER_COMMAND_NAME = 'rcmd'
 # do not change. Rename resolver/resolver.py to resolver/{RESOLVER_COMMAND_NAME}.py
