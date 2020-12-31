@@ -19,7 +19,7 @@ RESOLVER_DESCRIPTION = 'Sceptre resolver to execute generic shell commands. See 
 RESOLVER_AUTHOR = 'Luke Plausin'
 # if multiple use single string with commas.
 RESOLVER_AUTHOR_EMAIL = 'sceptre@cloudreach.com'
-RESOLVER_URL = 'https://github.com/sceptre/{}'.format(RESOLVER_NAME)
+RESOLVER_URL = 'https://github.com/lukeplausin/sceptre-resolver-cmd'
 
 with open("README.md") as readme_file:
     README = readme_file.read()
