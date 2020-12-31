@@ -53,8 +53,8 @@ parameters:
   EC2ImageIdWindows: !rcmd >-
     aws ssm get-parameters
       --region eu-west-2
-      --names /aws/service/ami-windows-latest/Windows_Server-2016-English-Full-Base
-      --query 'Parameters[0].[Value]' --output text | jq -r '.image_id'
+      --names /aws/service/ami-windows-latest/Windows_Server-2019-English-Full-Base
+      | jq -r '.Parameters[0].Value' | jq -r '.image_id'
 ```
 
 ```yaml
