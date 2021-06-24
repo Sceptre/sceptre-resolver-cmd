@@ -26,10 +26,13 @@ with open("README.md") as readme_file:
 
 install_requirements = [
     "packaging==16.8",
+    "sceptre"
 ]
 
 test_requirements = [
     "pytest>=3.2",
+    "pytest-cov",
+    "coverage",
 ]
 
 setup_requirements = [

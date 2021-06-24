@@ -3,11 +3,14 @@ coverage-all:
 		coverage run --source resolver -m unittest
 		coverage xml
 
-coverage: coverage-all
+# coverage: coverage-all
+coverage: test
 		coverage report --show-missing
+		coverage html
+		coverage report -m
 
 test:
-	    pytest --junitxml=test-reports/junit.xml
+	    pytest --junitxml=test-reports/junit.xml --cov=resolver
 
 lint:
 	    flake8 .
@@ -34,6 +37,7 @@ dist: clean
 	ls -l dist
 
 clean: clean-build clean-pyc clean-test
+	git clean -f -X -d
 
 clean-build:
 	rm -fr build/
