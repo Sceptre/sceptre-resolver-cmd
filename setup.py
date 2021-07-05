@@ -14,7 +14,7 @@ RESOLVER_MODULE_NAME = 'resolver.{}'.format(RESOLVER_COMMAND_NAME)
 # CamelCase name of resolver class in resolver.resolver.
 RESOLVER_CLASS = 'SceptreResolverCmd'
 # One line summary description
-RESOLVER_DESCRIPTION = 'Sceptre resolver to execute generic shell commands. See here: https://github.com/lukeplausin/sceptre-resolver-cmd'
+RESOLVER_DESCRIPTION = 'Sceptre resolver to execute generic shell commands'
 # if multiple use a single string with comma separated names.
 RESOLVER_AUTHOR = 'Luke Plausin'
 # if multiple use single string with commas.
