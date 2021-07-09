@@ -74,7 +74,14 @@ parameters:
 ```
 
 ```yaml
-# Use a specific profile and region when executing a command
+# Execute the command with the same AWS profile and region provided to Sceptre
+parameters:
+  CanonicalUserId: !rcmd
+    command: "aws s3api list-buckets --query Owner.ID --output text"
+```
+
+```yaml
+# Override the command execution with a specific AWS profile and region
 parameters:
   CanonicalUserId: !rcmd
     command: "aws s3api list-buckets --query Owner.ID --output text"
