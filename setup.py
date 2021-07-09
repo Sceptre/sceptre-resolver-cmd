@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-__version__ = "1.1.2"
+__version__ = "1.1.3"
 
 # More information on setting values:
 # https://github.com/Sceptre/project/wiki/sceptre-resolver-template
@@ -14,12 +14,12 @@ RESOLVER_MODULE_NAME = 'resolver.{}'.format(RESOLVER_COMMAND_NAME)
 # CamelCase name of resolver class in resolver.resolver.
 RESOLVER_CLASS = 'SceptreResolverCmd'
 # One line summary description
-RESOLVER_DESCRIPTION = 'Sceptre resolver to execute generic shell commands. See here: https://github.com/lukeplausin/sceptre-resolver-cmd'
+RESOLVER_DESCRIPTION = 'Sceptre resolver to execute generic shell commands'
 # if multiple use a single string with comma separated names.
 RESOLVER_AUTHOR = 'Luke Plausin'
 # if multiple use single string with commas.
 RESOLVER_AUTHOR_EMAIL = 'sceptre@cloudreach.com'
-RESOLVER_URL = 'https://github.com/lukeplausin/sceptre-resolver-cmd'
+RESOLVER_URL = 'https://github.com/Sceptre/sceptre-resolver-cmd'
 
 with open("README.md") as readme_file:
     README = readme_file.read()
@@ -62,8 +62,6 @@ setup(
         "Intended Audience :: Developers",
         "Natural Language :: English",
         "Environment :: Console",
-        "Programming Language :: Python :: 2.7",
-        "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7"
     ],

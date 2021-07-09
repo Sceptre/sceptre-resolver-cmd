@@ -7,10 +7,9 @@ coverage: coverage-all
 		coverage report --show-missing
 
 test:
-	    pytest --junitxml=test-reports/junit.xml
-
+	    python -m pytest --junitxml=test-reports/junit.xml
 lint:
-	    flake8 .
+	    pre-commit run --all-files --show-diff-on-failure
 
 acceptance-test:
 	    behave acceptance-tests/
