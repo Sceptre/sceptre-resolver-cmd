@@ -21,12 +21,13 @@ class SceptreResolverCmd(Resolver):
                 command = args['command']
             else:
                 raise ValueError("Missing the command to execute")
+
             if 'profile' in args:
                 profile = args['profile']
-                expression = f"{command} --profile {profile}"
+                expression = f"AWS_PROFILE={profile} {command}"
             if 'region' in args:
                 region = args['region']
-                expression = f"{expression} --region {region}"
+                expression = f"AWS_DEFAULT_REGION={region} {expression}"
         else:
             expression = self.argument
 
