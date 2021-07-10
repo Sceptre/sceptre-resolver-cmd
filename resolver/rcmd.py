@@ -50,7 +50,6 @@ class SceptreResolverCmd(Resolver):
         :return: the resulting output from the executed command
         '''
         expression = build_expression(self.argument, self.stack.profile)
-        print(f"running... {expression}")
         shell = os.environ.get('SHELL', '/bin/bash')
         output = subprocess.check_output([shell, '-c', expression])
         if isinstance(output, bytes):
