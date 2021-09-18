@@ -7,9 +7,10 @@ import subprocess
 
 def build_expression(args, profile):
     '''
-    Build the command that will get executed.  The input argument is only used
-    when args is passed in as a dictionary containing command and profile.
-    If the args is passed in as a string the profile is ignored.
+    Build the command that will get executed. The expression always contains
+    an AWS profile. By default, the profile that the command is executed with
+    is the one that is used to run sceptre. The user can override that profile
+    by setting an alternate profile in the `profile` parameter.
     :param args: input arguments
     :param profile: the AWS profile to execute with
     :return: the expression to execute
@@ -45,7 +46,7 @@ class SceptreResolverCmd(Resolver):
 
     def resolve(self):
         '''
-        Executes a command in an environment shell
+        Executes a command in an environment shell.
         :return: the resulting output from the executed command
         '''
         expression = build_expression(self.argument, self.stack.profile)
