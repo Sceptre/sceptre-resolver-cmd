@@ -14,9 +14,14 @@ def build_expression(args, profile):
     :param profile: the AWS profile to execute with
     :return: the expression to execute
     '''
-    expression = None
-    if isinstance(args, dict):
+    if not args:
+        raise ValueError("Missing the command to execute")
 
+    if not profile:
+        profile = os.environ.get("AWS_PROFILE")
+
+    expression = args
+    if isinstance(expression, dict):
         try:
             expression = args['command']
             if not expression:
@@ -26,15 +31,9 @@ def build_expression(args, profile):
 
         if 'profile' in args:
             # override default profile
-            expression = f"AWS_PROFILE={args['profile']} {expression}"
-        else:
-            expression = f"AWS_PROFILE={profile} {expression}"
+            profile = args['profile']
 
-    else:
-        if not args:
-            raise ValueError("Missing the command to execute")
-
-        expression = args
+    expression = f"AWS_PROFILE={profile} {expression}"
 
     return expression
 
