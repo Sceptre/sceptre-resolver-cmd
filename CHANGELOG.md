@@ -8,6 +8,15 @@ Categories: Added, Removed, Changed, Fixed, Nonfunctional, Deprecated
 
 <!--- Example CHANGELOG entry
 
+## 2.0.0
+
+### Added
+- Support for region and sceptre_role dict arguments
+
+### Changed
+- Updated the requirement for Sceptre to >=4.0
+- All AWS environment variables for the appropriate session are passed to the subprocess
+
 ## 1.2.1
 
 ### Changed
