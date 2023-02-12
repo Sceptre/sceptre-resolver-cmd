@@ -1,14 +1,20 @@
 # -*- coding: utf-8 -*-
 import subprocess
-from typing import Any
+from typing import Optional, Union
 
+from sceptre.exceptions import SceptreException
 from sceptre.resolvers import Resolver
 from sceptre.stack import Stack
 
 
 class SceptreResolverCmd(Resolver):
-
-    def __init__(self, argument: Any = None, stack: Stack = None, *, subprocess_run=subprocess.run,):
+    def __init__(
+        self,
+        argument: Union[str, dict] = None,
+        stack: Stack = None,
+        *,
+        subprocess_run=subprocess.run
+    ):
         super(SceptreResolverCmd, self).__init__(argument, stack)
         self._subprocess_run = subprocess_run
 
@@ -38,9 +44,13 @@ class SceptreResolverCmd(Resolver):
             profile = self.argument.get('profile', profile)
             region = self.argument.get('region', region)
             role = self.argument.get('sceptre_role', role)
-            command = self.argument['command']
+            command: Optional[str] = self.argument.get('command', '')
         else:
-            command = self.argument
+            command: str = self.argument
+
+        if command in ('', None):
+            raise SceptreException("A command is required for the !rcmd resolver")
+
         environment_variables = self.stack.connection_manager.create_session_environment_variables(
             profile, region, role
         )

@@ -4,7 +4,9 @@ import subprocess
 from unittest import TestCase
 from unittest.mock import Mock, create_autospec
 
+from parameterized import parameterized
 from sceptre.connection_manager import ConnectionManager
+from sceptre.exceptions import SceptreException
 from sceptre.stack import Stack
 
 from resolver.rcmd import SceptreResolverCmd
@@ -97,3 +99,15 @@ class TestSceptreResolverCmd(TestCase):
         result = self.resolver.resolve()
 
         self.assertEqual(expected, result)
+
+    @parameterized.expand([
+        ('no arg', None),
+        ('dict arg with no command', {}),
+        ('dict arg with empty command', {'command': ''}),
+        ('string arg with empty command', '')
+    ])
+    def test_resolve__invalid_command_argument__raises_sceptre_exception(self, name, arg):
+        self.argument = arg
+
+        with self.assertRaises(SceptreException):
+            self.resolver.resolve()
