@@ -5,8 +5,6 @@ Categories: Added, Removed, Changed, Fixed, Nonfunctional, Deprecated
 
 <!--- All unreleased items go here  -->
 
-<!--- Example CHANGELOG entry
-
 ## 2.0.0
 
 ### Added
@@ -27,5 +25,3 @@ Categories: Added, Removed, Changed, Fixed, Nonfunctional, Deprecated
 ### Added
 
 - Initial resolver code
-
--->
