@@ -81,9 +81,11 @@ parameters:
 ```
 
 ```yaml
-# Override the command execution with a specific AWS profile
+# Override the command execution with a specific AWS profile, region, and/or sceptre_role
 parameters:
   CanonicalUserId: !rcmd
     command: "aws s3api list-buckets --query Owner.ID --output text"
     profile: "my-profile"
+    region: "us-west-2"
+    sceptre_role: "arn:aws:iam::123456:role/my-role-to-override-the-stack-role"
 ```

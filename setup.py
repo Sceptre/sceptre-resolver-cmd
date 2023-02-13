@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-__version__ = "1.2.1"
+__version__ = "2.0.0"
 
 # More information on setting values:
 # https://github.com/Sceptre/project/wiki/sceptre-resolver-template
@@ -25,7 +25,7 @@ with open("README.md") as readme_file:
     README = readme_file.read()
 
 install_requirements = [
-    "sceptre>=2.7",
+    "sceptre>=4.0.1",
 ]
 
 test_requirements = [
@@ -62,8 +62,10 @@ setup(
         "Intended Audience :: Developers",
         "Natural Language :: English",
         "Environment :: Console",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7"
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10"
     ],
     test_suite="tests",
     install_requires=install_requirements,
