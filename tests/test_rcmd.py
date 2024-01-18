@@ -26,6 +26,7 @@ class TestSceptreResolverCmd(TestCase):
                 'create_session_environment_variables.return_value': self.envs
             })
         )
+        self.stack.name = "mock-name"
         self.subprocess_run = create_autospec(subprocess.run)
 
     @property
