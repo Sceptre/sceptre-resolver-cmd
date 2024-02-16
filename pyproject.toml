@@ -15,19 +15,21 @@ classifiers = [
     "Environment :: Console",
 ]
 
-[tool.poetry.dependencies]
-python = "^3.8"
-sceptre = ">=4.0.1"
-
-[tool.poetry.group.dev.dependencies]
-parameterized = "^0.9.0"
-pre-commit = "^3.5.0"
-pytest = "^7.4.3"
-pytest-cov = "^4.1.0"
-
 [tool.poetry.plugins."sceptre.resolvers"]
 rcmd = "resolver.rcmd:SceptreResolverCmd"
 
+[tool.poetry.dependencies]
+python = "^3.8"
+
+[tool.poetry.group.dev.dependencies]
+parameterized = "^0.9.0"
+pre-commit = "^3.2.1"
+tox = "^3.23.0"
+pytest = "^7.2.2"
+pytest-cov = "^4.0.0"
+sceptre = "^4.0"
+tox-gh-matrix = "^0.2"
+
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
