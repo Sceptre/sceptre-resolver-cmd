@@ -59,9 +59,9 @@ class TestSceptreResolverCmd(TestCase):
         self.argument = {"command": self.argument}
 
         self.resolver.resolve()
-        expected_profile = (
-            expected_region
-        ) = expected_role = self.stack.connection_manager.STACK_DEFAULT
+        expected_profile = expected_region = expected_role = (
+            self.stack.connection_manager.STACK_DEFAULT
+        )
         self.stack.connection_manager.create_session_environment_variables.assert_any_call(
             expected_profile, expected_region, expected_role
         )
